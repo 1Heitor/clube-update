@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube da Torre - Escolinha Particular</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+/* Cores Oficiais */
+:root {
+    --azul-escuro: #0887ff;
+    --azul-claro: #007bff;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.turmas {
+    padding: 20px 10px;
+    background: #f5f8ff;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: poppins;
+  color: #0084ff;
+
+}
+.title h1 {
+  padding-left:10px;
+
+  
+}
+.underline {
+  width: 100px; /* Ajuste a largura da linha aqui */
+  height: 3px; /* Altura da linha */
+  background-color: #0054a7; /* Cor azul escura */
+  margin-top: 5px; /* Espaçamento entre o título e a linha */
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.cards {
+    display: flex;
+    gap: 30px;
+    user-select: none;
+    touch-action: pan-x;
+    cursor: grab;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    width: calc(33% - 20px); /* 3 cards por linha */
+    min-width: 300px;
+    margin: 10px
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    position: relative;
+    height: 250px;
+}
+
+.carousel-inner {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s;
+    overflow: visible; /* Revela todas as bordas */
+    padding: 0 5px; /* Espaço para as bordas laterais */
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-top: 3px;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+    box-sizing: border-box; /* Inclui a borda no cálculo da largura */
+}
+.card-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--azul-escuro);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'bluestar';
+    font-weight: 600;
+    z-index: 2;
+}
+
+.card-body {
+  padding: 20px;
+  font-family:Poppins, sans-serif;
+  text-align: left;
+}
+.card-body h3 {
+  font-size: 1.3rem;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #0084ff;
+}
+.card-body  p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  color: #555;
+}
+.card-body span {
+    color: var(--azul-claro);
+    font-weight: 600;
+}
+
+.card-btn {
+    background: var(--azul-claro);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.card-btn:hover {
+    background: #005bb5;
+}
+
+.carousel-button {
+    background: none;
+    border: none;
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.carousel-button:hover {
+    color: var(--azul-claro);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px);
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        min-width: 250px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Dias e Horários</h1>
+        <div class="underline"></div>
+        </div>
+        <div class="carousel-container">
+            <!-- Botão de voltar -->
+            <button class="carousel-button prev">&#10094;</button>
+            
+            <!-- Cards -->
+            <div class="cards">
+                <!-- Turma Kids -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="carousel-inner">
+                            <img src="escolinhaparticular/turmakids/1.jpeg" alt="Kids 1">
+                        </div>
+                        <div class="card-label">Kids</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>05-09 Anos</h3>
+                        <p>Seg e Qua <span>18:00h</span></p>
+                        <a href="#" class="card-btn">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Turma Juvenil -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="carousel-inner">
+                            <img src="escolinhaparticular/turmajuvenil/1.jpeg" alt="Juvenil 1">
+                        </div>
+                        <div class="card-label">Juvenil</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>13-15 Anos</h3>
+                        <p>Ter e Qui <span>17:00h</span></p>
+                        <a href="#" class="card-btn">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Turma Infantil -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="carousel-inner">
+                            <img src="escolinhaparticular/turmainfantil/1.jpeg" alt="Infantil 1">
+
+                        </div>
+                        <div class="card-label">Infantil</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>10-12 Anos</h3>
+                        <p>Ter e Qui <span>18:00h</span></p>
+                        <a href="#" class="card-btn">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão de avançar -->
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </div>
+    <script>
+window.addEventListener('load', function() {
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  const cards = document.querySelector('.cards');
+  
+  let isDragging = false;
+  let startX = 0;
+  let scrollStart = 0;
+  
+  // Variáveis para scroll contínuo dos botões
+  let scrollInterval;
+  const scrollSpeed = 5; // pixels a cada intervalo
+  const intervalDelay = 10; // milissegundos entre intervalos
+  // 1) Duplicar os cards para criar o loop infinito
+  const originalCards = Array.from(cards.children);
+  originalCards.forEach(card => {
+  const clone = card.cloneNode(true);
+  cards.appendChild(clone);
+  });
+  
+  // 2) Posicionar o scroll no meio (início dos clones)
+  setTimeout(() => {
+  cards.scrollLeft = cards.scrollWidth / 4; // posiciona no meio dos clones
+  }, 100);
+  
+  // Função de teletransporte com limiar para ambos os lados
+  function teleport() {
+  const half = cards.scrollWidth / 2;
+  const threshold = 50; // 50px de margem
+  if (cards.scrollLeft <= threshold) {
+  cards.scrollLeft += half - threshold;
+  } else if (cards.scrollLeft >= half + threshold) {
+  cards.scrollLeft -= half - threshold;
+  }
+  }
+  
+  // 3) Funções para iniciar/pausar o scroll contínuo
+  function startScrolling(direction) {
+  stopScrolling(); // Garante que não existam múltiplos intervals
+  scrollInterval = setInterval(() => {
+  cards.scrollLeft += direction * scrollSpeed;
+  teleport(); // Adiciona a função de teletransporte durante a rolagem contínua
+  }, intervalDelay);
+  }
+  function stopScrolling() {
+  clearInterval(scrollInterval);
+  }
+  
+  // 4) Eventos dos botões de seta – resposta instantânea
+  prevButton.addEventListener('mousedown', () => startScrolling(-1));
+  nextButton.addEventListener('mousedown', () => startScrolling(1));
+  // Para dispositivos de toque
+  prevButton.addEventListener('touchstart', () => startScrolling(-1));
+  nextButton.addEventListener('touchstart', () => startScrolling(1));
+  
+  // Para parar quando o usuário soltar o botão
+  document.addEventListener('mouseup', () => {
+  stopScrolling();
+  if (!isDragging) teleport();
+  });
+  prevButton.addEventListener('mouseleave', stopScrolling);
+  nextButton.addEventListener('mouseleave', stopScrolling);
+  prevButton.addEventListener('touchend', () => {
+  stopScrolling();
+  if (!isDragging) teleport();
+  });
+  nextButton.addEventListener('touchend', () => {
+  stopScrolling();
+  if (!isDragging) teleport();
+  });
+  
+  // 5) Arraste com mouse
+  cards.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX;
+  scrollStart = cards.scrollLeft;
+  cards.style.cursor = 'grabbing';
+  });
+  cards.addEventListener('mouseleave', () => {
+  isDragging = false;
+  cards.style.cursor = 'grab';
+  teleport();
+  });
+  cards.addEventListener('mouseup', () => {
+  isDragging = false;
+  cards.style.cursor = 'grab';
+  teleport();
+  });
+  cards.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX;
+  const walk = x - startX; // Movimento livre
+  cards.scrollLeft = scrollStart - walk;
+  });
+  
+  // 6) Arraste com toque
+  cards.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startX = e.touches[0].pageX;
+  scrollStart = cards.scrollLeft;
+  }, { passive: true });
+  cards.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const x = e.touches[0].pageX;
+  const walk = x - startX;
+  cards.scrollLeft = scrollStart - walk;
+  }, { passive: true });
+  cards.addEventListener('touchend', () => {
+  isDragging = false;
+  teleport();
+  });
+  cards.addEventListener('touchcancel', () => {
+  isDragging = false;
+  teleport();
+  });
+  
+  // 7) Loop infinito: Teletransporta o scroll ao atingir os extremos (quando não estiver arrastando)
+  cards.addEventListener('scroll', () => {
+  if (!isDragging) {
+  teleport();
+  }
+  });
+  });
+    </script>
+</body>
+</html>

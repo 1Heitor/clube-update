@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrossel Infinito - Compatível</title>
+  
+  <style>
+    /* ================================
+       CSS Geral
+       ================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Seção de Destaques */
+    .services {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #0084ff;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: #666;
+    }
+
+    /* ================================
+       Carrossel
+       ================================ */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden; /* Esconde o que sai do container */
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: flex;
+      gap: 30px;
+      scroll-behavior: smooth; /* Rolagem suave */
+      user-select: none;       /* Evita seleção de texto ao arrastar */
+      touch-action: pan-x;     /* Permite rolagem horizontal por toque */
+      cursor: grab;           /* Indica que é "arrastável" */
+    }
+
+    .card {
+      background: #fdfdfd;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0; /* Não deixa o card encolher no flex */
+
+      /* Ajuste a largura de cada card conforme desejar */
+      width: 300px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #0084ff;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .card-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0084ff;
+      color: #fff;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+    .card-btn:hover {
+      background-color: #005bb5;
+    }
+
+    /* ================================
+       Botões de Navegação
+       ================================ */
+    .carousel-button {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+      padding: 10px;
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      color: white;
+      cursor: pointer;
+    }
+    .prev {
+      left: 0;
+    }
+    .next {
+      right: 0;
+    }
+
+    /* ================================
+       Responsividade simples
+       ================================ */
+    @media (max-width: 768px) {
+      .card {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Destaques</h2>
+      <p class="section-subtitle">Experiências exclusivas para toda a família</p>
+
+      <div class="carousel-container">
+        <!-- Botão de voltar -->
+        <button class="carousel-button prev">&#10094;</button>
+
+        <div class="cards">
+          <!-- Seus 5 Cards Originais -->
+          <div class="card">
+            <img src="imgevento/Bloco-Torre.png" alt="Imagem 1">
+            <div class="card-content">
+              <h3>Bloco da Torre 22/02</h3>
+              <p>Em breve: mais eventos, mais experiências e muita diversão.</p>
+              <a href="eventos/eventos.html" class="card-btn">Em Breve</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="imgevento/embreve.png" alt="Imagem 2">
+            <div class="card-content">
+              <h3>Matinê da Torre 07/03</h3>
+              <p>Novidades que estão por vir para surpreender nossos sócios.</p>
+              <a href="eventos/eventos.html" class="card-btn">Em Breve</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="imgevento/Ensaio-churupita.png" alt="Imagem 3">
+            <div class="card-content">
+              <h3>Ensaio da Torre: Bloco do Churupita 14/02</h3>
+              <p>Novidades que estão por vir para surpreender nossos sócios.</p>
+              <a href="eventos/eventos.html" class="card-btn">Em Breve</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="imgevento/Ensaio-torre.png" alt="Evento 4">
+            <div class="card-content">
+              <h3>Ensaio da Torre 07/02</h3>
+              <p>Novidades que estão por vir para surpreender nossos sócios.</p>
+              <a href="eventos/eventos.html" class="card-btn">Em Breve</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="imgevento/alimentos.jpeg" alt="Evento 5">
+            <div class="card-content">
+              <h3>Projeto Recomeço</h3>
+              <p>Iniciativa que transforma vidas com doações e apoio à comunidade.</p>
+              <a href="eventos/eventos.html" class="card-btn">Saiba Mais</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão de avançar -->
+        <button class="carousel-button next">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Carrossel Infinito Compatível
+    window.addEventListener('load', function() {
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      const cards = document.querySelector('.cards');
+
+      // Variáveis para arraste
+      let isDown = false;   // indica se está arrastando
+      let startX = 0;       // posição inicial do clique (mouse ou toque)
+      let scrollLeft = 0;   // scrollLeft inicial
+
+      // --------------------------------------------------
+      // 1) DUPLICAR OS CARDS ORIGINAIS (Criar Loop Infinito)
+      // --------------------------------------------------
+      const originalCards = Array.from(cards.children);
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        cards.appendChild(clone);
+      });
+      // Agora temos 10 cards (5 originais + 5 clones).
+
+      // --------------------------------------------------
+      // 2) POSICIONAR O SCROLL NO MEIO (onde começa o clone)
+      // --------------------------------------------------
+      // Usamos setTimeout para garantir que scrollWidth esteja calculado.
+      setTimeout(() => {
+        cards.scrollLeft = cards.scrollWidth / 2;
+      }, 100);
+
+      // --------------------------------------------------
+      // 3) LÓGICA DAS SETAS (cliques)
+      // --------------------------------------------------
+      function moveToNext() {
+        // Ajuste a distância (350) conforme a largura dos cards
+        cards.scrollBy({ left: 350, behavior: 'smooth' });
+      }
+      function moveToPrev() {
+        cards.scrollBy({ left: -350, behavior: 'smooth' });
+      }
+      prevButton.addEventListener('click', moveToPrev);
+      nextButton.addEventListener('click', moveToNext);
+
+      // --------------------------------------------------
+      // 4) ARRASTE (MOUSE E TOUCH)
+      // --------------------------------------------------
+      // ---- MOUSE ----
+      cards.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX;        // posição X do mouse
+        scrollLeft = cards.scrollLeft;
+        cards.style.cursor = 'grabbing';
+      });
+      cards.addEventListener('mouseleave', () => {
+        isDown = false;
+        cards.style.cursor = 'grab';
+      });
+      cards.addEventListener('mouseup', () => {
+        isDown = false;
+        cards.style.cursor = 'grab';
+      });
+      cards.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX;
+        const walk = (x - startX) * 2; // fator de velocidade do arraste
+        cards.scrollLeft = scrollLeft - walk;
+      });
+
+      // ---- TOUCH (Mobile) ----
+      cards.addEventListener('touchstart', (e) => {
+        isDown = true;
+        // Usa touches[0] para pegar a primeira “touch” na tela
+        startX = e.touches[0].pageX;
+        scrollLeft = cards.scrollLeft;
+      }, { passive: true });
+
+      cards.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 2;
+        cards.scrollLeft = scrollLeft - walk;
+      }, { passive: true });
+
+      cards.addEventListener('touchend', () => {
+        isDown = false;
+      });
+      cards.addEventListener('touchcancel', () => {
+        isDown = false;
+      });
+
+      // --------------------------------------------------
+      // 5) LOOP INFINITO NO SCROLL
+      // --------------------------------------------------
+      cards.addEventListener('scroll', () => {
+        const half = cards.scrollWidth / 2;
+        
+        // Se rolou para a direita quase no final, "teletransporta" para o meio
+        if (cards.scrollLeft >= half * 1.99) {
+          cards.scrollLeft -= half;
+        }
+        // Se rolou para a esquerda (scrollLeft <= 0), pula para a segunda metade
+        else if (cards.scrollLeft <= 0) {
+          cards.scrollLeft += half;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

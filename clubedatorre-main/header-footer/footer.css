@@ -1,0 +1,108 @@
+/* Footer */
+footer {
+    background-color: #0061b1; /* Cor de fundo do rodapé */
+    color: #fff;
+    padding: 30px 0px;
+    position: relative; /* Para permitir o posicionamento da logo no fundo */
+  }
+  
+  .containerfoot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha as seções no topo */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logofoot img {
+    height:100%; /* Tamanho da logo à esquerda */
+    width: 300px;
+    margin-top: 50px;
+    margin-right: 60px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 0 15px; /* Ajuste a margem entre as seções */
+  }
+  
+  .footer-section h4 {
+    font-size: 1.5rem;
+    color: #ffffff; /* Cor do título */
+    margin-bottom: 10px;
+    margin-left: 7px;
+   
+  }
+  footer i.fab.fa-instagram {
+color: rgb(255, 0, 157);
+  }
+  footer i.fa-facebook-square {
+    color: rgb(0, 140, 255);
+      }
+      footer i.fa-whatsapp{
+        color: rgb(0, 255, 85);
+          }
+      
+  
+  .footer-section p {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+    
+  }
+  
+  .footer-section a {
+     
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #fff; /* Cor ao passar o mouse */
+  }
+
+  .footer-section i {
+    
+    font-size: 20px;
+    margin: 8px;
+  }
+  
+  .logo-bottom {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+  }
+  
+  .logo-bottom img {
+    height: 50px; /* Tamanho da logo menor no rodapé inferior */
+    width: auto;
+  }
+  
+  @media (max-width: 768px) {
+    footer {
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .containerfoot {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  
+    .footer-section {
+      margin-bottom: 20px;
+      align-items: center; /* Ajuste para alinhar as seções corretamente */
+    }
+  
+    .logo-bottom {
+      position: relative;
+
+      bottom: 0;
+      right: 0;
+    }
+  }

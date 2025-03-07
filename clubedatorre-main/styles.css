@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f7f7;
+  color: #ffffff;
+}
+
+/* Animações de fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Quando o elemento estiver visível, a classe "visible" será adicionada */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 550px;
+  background: url('imgshome/imgcampo.JPG') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-style: italic;
+  font-family: 'bluestar', cursive;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.conhecer{
+ padding: 17px 40px;
+ border-radius: 50px;
+ border: 0;
+ background-color: rgb(0, 132, 255);
+ box-shadow: black 0 0 8px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-size: 15px;
+ transition: all .5s ease;
+ color: white;
+ font-weight: bold;
+}
+
+.conhecer:hover{
+  letter-spacing: 3px;
+  background-color: white;
+  box-shadow: black 0px 7px 29px 0px;
+  color: black;
+}
+
+.conhecer:active{
+  letter-spacing: 3px;
+  background-color: rgb(2, 87, 167);
+  box-shadow: black 0px 0px 0px 0px;
+  color: white;
+  transform: translate(10px);
+  transition: 100ms;
+}
+
+/* Seção Services/Destaques */
+.services {
+  background-color: #fff; /* Fundo branco */
+  text-align: center;
+
+}
+
+.services .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #0084ff;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.destaques {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+}
+
+/* Seção Services/Destaques */
+.services {
+  background-color: #ffffff; /* Fundo branco */
+  text-align: center;
+  padding: 60px 0px;
+  margin-bottom: 40px; /* Espaço abaixo da seção */
+}
+.services .container {
+  max-width: 1200px;
+  align-items: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #0084ff;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #666666;
+}
+
+/* Carrossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+  padding: 20px 0px; /* Espaço interno para separar os cards das bordas */
+  border-radius: 15px; /* Arredondar as bordas para um visual mais limpo */
+  box-shadow: 0 4px 10px rgb(255, 255, 255); /* Sombra sutil para destacar */
+  background-color: #ffffff; /* Cor de fundo leve para contraste */
+}
+.cards {
+  display: flex;
+  gap: 30px;
+  user-select: none;
+  touch-action: pan-x;
+  cursor: grab;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
+.card {
+  background: #fdfdfd;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  width: calc(25% - 30px); /* Ajuste o tamanho para caber em 4 colunas */
+  min-width: 300px; /* Define um tamanho mínimo */
+  margin: 10px; /* Espaçamento entre os cards */
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 20px;
+  text-align: left;
+}
+.card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #0084ff;
+}
+.card-content p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  color: #555;
+}
+.card-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0084ff;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+.card-btn:hover {
+  background-color: #005bb5;
+}
+
+/* Botões de Navegação */
+.carousel-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 10px;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: rgba(129, 127, 127, 0.678);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.carousel-button:hover {
+
+  transform: translateY(-50%) scale(1.1); /* Efeito de aumento ao passar o mouse */
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 30px); /* Reduz para duas colunas em telas menores */
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* Uma única coluna em dispositivos móveis */
+    width: calc(50% - 30px)
+  }
+}
+
+
+
+/* Seção Sobre o Clube */
+.about {
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 120px; /* espaço extra pro botão não encostar na onda */
+}
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0084ff;
+}
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #444;
+}
+.about-btn {
+  padding: 12px 30px;
+  border: 2px solid #0084ff;
+  border-radius: 50px;
+  background: transparent;
+  color: #0084ff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+.about-btn:hover {
+  background-color: #0084ff;
+  color: #fff;
+}
+
+/* Ondas no topo */
+.wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* Curvatura suave */
+  z-index: 1; /* Coloca a onda acima do iframe */
+}
+.map {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 40px; /* Se quiser um espaçamento extra */
+  text-align: center;
+}
+
+#map-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Ajuste conforme necessário para o layout */
+  overflow: hidden;
+}
+.map .wave-top .shape-fill {
+  fill: #f7f7f7; /* Ajusta a cor da onda */
+}
+#map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== Ondas (wave dividers) ========== */
+.wave-section {
+  position: relative; /* Fundamental para posicionar a onda */
+}
+.wave-divider {
+  position: absolute;
+  left: 0; /* cola na borda esquerda */
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+.wave-bottom {
+  bottom: 0;
+}
+.wave-bottom svg {
+  display: block;
+  width: 100%; /* remove calc(100% + 1.3px) */
+  height: 80px; /* ajuste se quiser a onda mais alta ou baixa */
+  animation: waveFloat 6s ease-in-out infinite;
+}
+
+/* Cada onda deve ter a cor do fundo da próxima seção */
+.hero .wave-bottom .shape-fill {
+  fill: #fff; /* Próxima seção .services é branca */
+}
+.services .wave-bottom .shape-fill {
+  fill: #f7f7f7; /* Próxima seção .about é #f7f7f7 */
+}
+.about .wave-bottom .shape-fill {
+  fill: #fff; /* Próxima seção .map é branca */
+}
+.map .wave-bottom .shape-fill {
+  fill: #004b91; /* Footer é #004b91 */
+}
+
+/* (Opcional) Animação sutil de flutuação da onda */
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

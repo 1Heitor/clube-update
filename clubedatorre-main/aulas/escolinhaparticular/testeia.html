@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards com Navegação</title>
+    <!-- Importando o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Seção dos Cards com Navegação -->
+    <section class="py-16 bg-gray-50 px-4 relative">
+      <!-- Botão de navegação para a esquerda -->
+      <div class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 cursor-pointer z-10" id="prevBtn">
+        <span class="material-symbols-outlined">arrow_back_ios</span>
+      </div>
+
+      <!-- Botão de navegação para a direita -->
+      <div class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 cursor-pointer z-10" id="nextBtn">
+        <span class="material-symbols-outlined">arrow_forward_ios</span>
+      </div>
+
+      <!-- Cards dentro do grid -->
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 overflow-hidden" id="cardsContainer">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm mr-4"> FOTO </div>
+            <div>
+              <h4 class="font-bold text-gray-800">Lorem, ipsum dolor</h4>
+              <p class="text-gray-500 text-sm">Lorem, ipsum dolor</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, eligendi! Magnam officia voluptatem quibusdam cupiditate ipsam delectus at fugit ad aspernandorem.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm mr-4"> FOTO </div>
+            <div>
+              <h4 class="font-bold text-gray-800">Lorem, ipsum dolor</h4>
+              <p class="text-gray-500 text-sm">Lorem, ipsum dolor</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, eligendi! Magnam officia voluptatem quibusdam cupiditate ipsam delectus at fugit ad aspernandorem.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm mr-4"> FOTO </div>
+            <div>
+              <h4 class="font-bold text-gray-800">Lorem, ipsum dolor</h4>
+              <p class="text-gray-500 text-sm">Lorem, ipsum dolor</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, eligendi! Magnam officia voluptatem quibusdam cupiditate ipsam delectus at fugit ad aspernandorem.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm mr-4"> FOTO </div>
+            <div>
+              <h4 class="font-bold text-gray-800">Lorem, ipsum dolor</h4>
+              <p class="text-gray-500 text-sm">Lorem, ipsum dolor</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, eligendi! Magnam officia voluptatem quibusdam cupiditate ipsam delectus at fugit ad aspernandorem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Script para controle da navegação -->
+    <script>
+      // Pegar o container dos cards
+      const cardsContainer = document.getElementById('cardsContainer');
+      // Pegar os botões de navegação
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // Número de colunas
+      let columns = 4; // Inicialmente 4 colunas
+
+      // Função para mostrar o próximo conjunto de cards
+      nextBtn.addEventListener('click', () => {
+        const cardWidth = cardsContainer.querySelector('.bg-white').offsetWidth;
+        const currentTransform = parseInt(window.getComputedStyle(cardsContainer).transform.split(',')[4]) || 0;
+        const maxTranslate = -(cardsContainer.scrollWidth - cardsContainer.offsetWidth);
+
+        // Verificar se não ultrapassou o limite
+        if (currentTransform > maxTranslate) {
+          cardsContainer.style.transform = `translateX(${currentTransform - cardWidth}px)`;
+        }
+      });
+
+      // Função para mostrar o conjunto anterior de cards
+      prevBtn.addEventListener('click', () => {
+        const cardWidth = cardsContainer.querySelector('.bg-white').offsetWidth;
+        const currentTransform = parseInt(window.getComputedStyle(cardsContainer).transform.split(',')[4]) || 0;
+
+        // Verificar se o container não está na posição inicial
+        if (currentTransform < 0) {
+          cardsContainer.style.transform = `translateX(${currentTransform + cardWidth}px)`;
+        }
+      });
+    </script>
+  </body>
+</html>
